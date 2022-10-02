@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './Pages/Shared/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <h2>I am Mehedi Manav</h2>
+     <Navbar></Navbar>
     </div>
     // hi how are you 
   );
