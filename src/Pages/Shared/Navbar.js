@@ -25,14 +25,14 @@ const Navbar = () => {
         <li><Link>Payment Information</Link></li>
       </ul>
     </div>
-    <div ><button class="btn btn-ghost">IT Ishool</button></div>
+    <div ><button  class="btn btn-ghost"><Link to="/home">IT Ishool</Link></button></div>
   </div>
   <div class="flex-none">
   {/* <div class="form-control">
       <input type="text" placeholder="Search" class="input input-bordered" />
     </div> */}
     <button class="btn btn-active btn-ghost mr-4">Login</button>
-    <button class="btn btn-active btn-ghost">Logout</button>
+    {/* <button class="btn btn-active btn-ghost">Logout</button> */}
     <div class="dropdown dropdown-end">
         
       <label tabindex="0" class="btn btn-ghost btn-circle">
