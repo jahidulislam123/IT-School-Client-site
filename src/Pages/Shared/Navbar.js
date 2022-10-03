@@ -1,7 +1,20 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+  const navigate =useNavigate()
+  const [user, loading, error] = useAuthState(auth);
+  const logout =()=>{
+    signOut(auth);
+    localStorage.removeItem('accessToken');
+  }
+
+  if(user){
+    navigate("/home")
+  }
     return (
         <div>
             <div class="navbar bg-accent">
@@ -31,8 +44,9 @@ const Navbar = () => {
   {/* <div class="form-control">
       <input type="text" placeholder="Search" class="input input-bordered" />
     </div> */}
-    <button class="btn btn-active btn-ghost mr-4">Login</button>
-    {/* <button class="btn btn-active btn-ghost">Logout</button> */}
+    {/* <button class="btn btn-active btn-ghost mr-4"><Link to="/login">Login</Link></button> */}
+    {/* <button class="btn btn-active btn-ghost"><Link to='/signin' >Logout</Link></button> */}
+    <li>{ user? <button onClick={logout} class="btn btn-ghost">SignOut</button> :<Link to='/login'>Login</Link>}</li>
     <div class="dropdown dropdown-end">
         
       <label tabindex="0" class="btn btn-ghost btn-circle">
